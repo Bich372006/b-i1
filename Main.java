@@ -1,16 +1,22 @@
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Customer customer = new Customer("John Doe");
-        customer.setMember(true);
-        customer.setMemberType("Gold");
+        // Tạo danh sách điểm ban đầu
+        List<Point> initialPoints = new ArrayList<>();
+        initialPoints.add(new Point(1, 2));
+        initialPoints.add(new Point(3, 4));
 
-        Visit visit = new Visit(customer.getName(), new Date());
-        visit.setServiceExpense(100);
-        visit.setProductExpense(50);
+        // Khởi tạo PolyLine với danh sách điểm
+        PolyLine polyline = new PolyLine(initialPoints);
 
-        System.out.println(visit);
-        System.out.println("Total Expense: $" + visit.getTotalExpense());
+        // Thêm điểm mới
+        polyline.appendPoint(5, 6);
+        polyline.appendPoint(new Point(7, 8));
+
+        // In thông tin PolyLine
+        System.out.println("Polyline: " + polyline);
+        System.out.println("Total Length: " + polyline.getLength());
     }
 }
