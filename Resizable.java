@@ -5,13 +5,10 @@
  */
 package Resizable;
 
-import GeometricObject.*;
-
 /**
  *
  * @author GIA KINH
  */
-public interface GeometricObject {
-    public double getArea();
-    public double getPerimeter();
+public interface Resizable {
+    public abstract void resize(int percent);
 }

@@ -3,23 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MovableCircle;
+package Resizable;
 
 /**
  *
  * @author GIA KINH
  */
 public class TestMain {
-
     public static void main(String[] args) {
-        Movable m1 = new MovablePoint(5, 6, 10, 15);     // upcast
-        System.out.println(m1);
-        m1.moveLeft();
-        System.out.println(m1);
+         GeometricObject g1 = new Circle(1.2);
+        System.out.println(g1);
+        System.out.println("Perimeter = "+g1.getPerimeter());
+        System.out.println("Area = "+ g1.getArea());
 
-        Movable m2 = new MovableCircle(1, 2, 3, 4, 20);  // upcast
-        System.out.println(m2);
-        m2.moveRight();
-        System.out.println(m2);
+        Resizable g2 = new ResizableCircle(3.4);
+        System.out.println(g2);
+        g2.resize(56);
+        System.out.println(g2);
+        
+
+        GeometricObject g3 = (GeometricObject) g2;
+        System.out.println(g3);
+        System.out.println("Perimeter = "+g3.getPerimeter());
+        System.out.println("Area = "+g3.getArea());
     }
 }
