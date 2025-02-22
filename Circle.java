@@ -3,21 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Cylinder;
 
 /**
  *
  * @author GIA KINH
  */
 public class Circle {
-    private double radius;
+    private double radius=1.0;
+    private String color="red";
 
     public Circle() {
-        radius = 1.0;
     }
-
 
     public Circle(double radius) {
         this.radius = radius;
+    }
+
+    public Circle(double radius, String color) {
+        this.radius = radius;
+        this.color = color;
     }
 
     public double getRadius() {
@@ -27,37 +32,21 @@ public class Circle {
     public void setRadius(double radius) {
         this.radius = radius;
     }
-    
-    public double getArea() {
-      return radius*radius*Math.PI;
+
+    public String getColor() {
+        return color;
     }
 
-    public double getCircumference(){
-        return radius*2*Math.PI;
+    public void setColor(String color) {
+        this.color = color;
+    }
+    
+    public double getArea(){
+        return this.radius*this.radius*Math.PI;
     }
 
     @Override
     public String toString() {
-        return "Circle[" + "radius=" + radius + ']';
+        return "Circle[" + "radius=" + radius + ",color=" + color + ']';
     }
 }
-
-class TestCircle{
-    public static void main(String[] args) {
-        // Test Constructors and toString()
-      Circle c1 = new Circle(1.1);
-      System.out.println(c1);   // toString()
-      Circle c2 = new Circle(); // default constructor
-      System.out.println(c2);
-
-      // Test setter and getter
-      c1.setRadius(2.2);
-      System.out.println(c1);      // toString()
-      System.out.println("radius is: " + c1.getRadius());
-
-      // Test getArea() and getCircumference()
-      System.out.printf("area is: %.2f%n", c1.getArea());
-      System.out.printf("circumference is: %.2f%n", c1.getCircumference());
-    }
-}
-
