@@ -9,27 +9,26 @@ package Animal;
  *
  * @author GIA KINH
  */
-public class Dog extends Animal{
+public class BigDog extends Dog{
 
-    public Dog() {
+    public BigDog() {
     }
 
-    public Dog(String name) {
+    public BigDog(String name) {
         super(name);
     }
 
     @Override
     public String toString() {
-        return "Dog[" + super.toString() +']';
-    } 
-
-    @Override
-    public void greets() {
-        System.out.println("Woow");
+        return "BigDog[" + super.toString() + ']';
     }
-    
-     public void greets(Dog another) {
+   
+    @Override
+    public void greets(Dog another) {
         System.out.println("Woooooow");
     }
     
+    public void greets(BigDog another) {
+        System.out.println("Wooooooooow");
+    }
 }

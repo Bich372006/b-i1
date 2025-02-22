@@ -9,21 +9,18 @@ package Animal;
  *
  * @author GIA KINH
  */
-public class Animal {
-    private String name;
-
-    public Animal() {
-    }
-
+public abstract class Animal {
+       private String name;
 
     public Animal(String name) {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Animal[" + "name=" + name + ']';
+    public Animal() {
     }
     
+    
+    
+    public abstract void greets();
     
 }

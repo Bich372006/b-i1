@@ -9,21 +9,25 @@ package Animal;
  *
  * @author GIA KINH
  */
-public class Cat extends Mammal{
-
-    public Cat() {
-    }
+public class Cat extends Animal{
 
     public Cat(String name) {
         super(name);
     }
+
+    public Cat() {
+    }
+
+    @Override
+    public String toString() {
+        return "Cat[" + super.toString() +']';
+    }
     
-    public void greets(){
+    
+
+    @Override
+    public void greets() {
         System.out.println("Meow");
     }
     
-    @Override
-    public String toString() {
-        return "Cat[" + super.toString() + ']';
-    }
 }
