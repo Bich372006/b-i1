@@ -9,8 +9,9 @@ package MovablePoint;
  *
  * @author GIA KINH
  */
-public class TestMain {
-    public static void main(String[] args) {
-        
-    }
+public interface Movable {
+    public abstract void moveUp();
+    public abstract void moveDown();
+    public abstract void moveLeft();
+    public abstract void moveRight();
 }
