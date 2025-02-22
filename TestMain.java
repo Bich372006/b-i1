@@ -3,31 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GeometricObject;
+package MovableCircle;
 
 /**
  *
  * @author GIA KINH
  */
 public class TestMain {
+
     public static void main(String[] args) {
-        GeometricObject c1;
-        c1 = new Circle(1);
-        System.out.println(c1);
-        
-        GeometricObject c2;
-        c2 = new Circle(2);
-        System.out.println(c2);
-        System.out.println("Area: " + c2.getArea());
-        System.out.println("Perimeter: " + c2.getPerimeter());
-        
-        GeometricObject r1;
-        r1 = new Rectangle(1, 2);
-        System.out.println(r1);
-        GeometricObject r2;
-        r2 = new Rectangle(3, 4);
-        System.out.println(r2);
-        System.out.println("Area: " + r2.getArea());
-        System.out.println("Perimeter: " + r2.getPerimeter());
+        Movable m1 = new MovablePoint(5, 6, 10, 15);     // upcast
+        System.out.println(m1);
+        m1.moveLeft();
+        System.out.println(m1);
+
+        Movable m2 = new MovableCircle(1, 2, 3, 4, 20);  // upcast
+        System.out.println(m2);
+        m2.moveRight();
+        System.out.println(m2);
     }
 }
