@@ -1,22 +1,27 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
-        // Tạo danh sách điểm ban đầu
-        List<Point> initialPoints = new ArrayList<>();
-        initialPoints.add(new Point(1, 2));
-        initialPoints.add(new Point(3, 4));
+        MyIntStack stack = new MyIntStack(5); // Tạo stack với dung lượng 5
 
-        // Khởi tạo PolyLine với danh sách điểm
-        PolyLine polyline = new PolyLine(initialPoints);
+        // Thêm phần tử vào stack
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        stack.push(40);
+        stack.push(50);
+        stack.push(60); // Stack đầy, không thể push
 
-        // Thêm điểm mới
-        polyline.appendPoint(5, 6);
-        polyline.appendPoint(new Point(7, 8));
+        stack.display(); // In stack
 
-        // In thông tin PolyLine
-        System.out.println("Polyline: " + polyline);
-        System.out.println("Total Length: " + polyline.getLength());
+        // Xem phần tử đỉnh (peek)
+        System.out.println("Top element: " + stack.peek());
+
+        // Lấy phần tử ra khỏi stack (pop)
+        System.out.println("Popped element: " + stack.pop());
+        System.out.println("Popped element: " + stack.pop());
+
+        stack.display(); // In stack sau khi pop
+
+        // Kiểm tra stack rỗng
+        System.out.println("Is stack empty? " + stack.isEmpty());
     }
 }
