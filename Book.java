@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Book1;
+package Book2;
+
+import java.util.Arrays;
 
 /**
  *
@@ -67,19 +69,23 @@ class Author {
 
 public class Book {
     private String name;
-    private Author author;
+    private Author[] authors;
     private double price;
     private int qty;
+    
+    public Book() {
+    }
 
-    public Book(String name, Author author, double price) {
+    public Book(String name, Author[] authors, double price) {
         this.name = name;
-        this.author = author;
+        this.authors = authors;
         this.price = price;
     }
     
-    public Book(String name, Author author, double price, int qty) {
+    
+    public Book(String name, Author[] authors, double price, int qty) {
         this.name = name;
-        this.author = author;
+        this.authors = authors;
         this.price = price;
         this.qty = qty;
     }
@@ -92,12 +98,12 @@ public class Book {
         this.name = name;
     }
 
-    public Author getAuthor() {
-        return author;
+    public Author[] getAuthors() {
+        return authors;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void setAuthors(Author[] authors) {
+        this.authors = authors;
     }
 
     public double getPrice() {
@@ -115,16 +121,34 @@ public class Book {
     public void setQty(int qty) {
         this.qty = qty;
     }
+    
+    public  String getAuthorNames(){
+        String authorNames="";
+        for(Author item: authors){
+            authorNames+=item.getName() +",";
+        }
+        StringBuilder newAuthorNames = new StringBuilder(authorNames);
+        newAuthorNames.deleteCharAt(newAuthorNames.length()-1);
+        return newAuthorNames.toString();
+    }
 
     @Override
     public String toString() {
-        return "Book[" + "name=" + name + "," + author + ",price=" + price + ",qty=" + qty + ']';
+        String author="";
+        for(Author item: authors){
+            author+=item.toString()+",";
+        }
+        StringBuilder newAuthors = new StringBuilder(author);
+        newAuthors.deleteCharAt(newAuthors.length()-1);
+        return "Book[" + "name=" + name + ",author={" + newAuthors + "},price=" + price + ",qty=" + qty + ']';
     }
 }
 
+
 class TestBook{
     public static void main(String[] args) {
-        Book book = new Book("Python", new Author("Gia Kinh", "giakinh2000@gmail.com", 'm'), 20.4,6);
-        System.out.println(book);
-    }   
+        Book book = new Book("Python", new Author[]{new Author("Gia Kinh", "giakinh2000@gmail.com", 'm'),new Author("Lan anh", "lanh@gmail.com", 'f')}, 200.5, 30);
+        System.out.println(book.getAuthorNames());
+        System.out.println(book.toString());
+    }
 }
