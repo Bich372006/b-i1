@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Book2;
-
-import java.util.Arrays;
+package Book3;
 
 /**
  *
@@ -15,21 +13,13 @@ import java.util.Arrays;
 class Author {
     private String name;
     private String email;
-    private char gender;
 
-    public Author() {
-    }
-    
-    
-    
-    public Author(String name, String email, char gender) {
+    public Author(String name, String email) {
         this.name = name;
         this.email = email;
-        if (gender == 'm' || gender == 'f') {
-            this.gender = gender;
-        }else{
-            System.out.println("Gender of 'm' or 'f'");
-        }
+    }
+
+    public Author() {
     }
 
     public String getName() {
@@ -48,46 +38,44 @@ class Author {
         this.email = email;
     }
 
-    public char getGender() {
-        return gender;
-    }
-
-    public void setGender(char gender) {
-        if (gender == 'm' || gender == 'f') {
-            this.gender = gender;
-        }else{
-            System.out.println("Gender of 'm' or 'f'");
-        }
-    }
-
     @Override
     public String toString() {
-        return "Author[" + "name=" + name + ",email=" + email + ",gender=" + gender + ']';
+        return "Author[" + "name=" + name + ",email=" + email + ']';
     }
+ 
 }
 
 
+
+
 public class Book {
+    private String isbn;
     private String name;
-    private Author[] authors;
-    private double price;
+    private Author author;
+    private Double price;
     private int qty;
-    
-    public Book() {
+
+    public Book(String isbn, String name, Author author, Double price) {
+        this.isbn = isbn;
+        this.name = name;
+        this.author = author;
+        this.price = price;
     }
 
-    public Book(String name, Author[] authors, double price) {
+    public Book(String isbn, String name, Author author, Double price, int qty) {
+        this.isbn = isbn;
         this.name = name;
-        this.authors = authors;
-        this.price = price;
-    }
-    
-    
-    public Book(String name, Author[] authors, double price, int qty) {
-        this.name = name;
-        this.authors = authors;
+        this.author = author;
         this.price = price;
         this.qty = qty;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
     public String getName() {
@@ -98,19 +86,19 @@ public class Book {
         this.name = name;
     }
 
-    public Author[] getAuthors() {
-        return authors;
+    public Author getAuthor() {
+        return author;
     }
 
-    public void setAuthors(Author[] authors) {
-        this.authors = authors;
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -122,33 +110,42 @@ public class Book {
         this.qty = qty;
     }
     
-    public  String getAuthorNames(){
-        String authorNames="";
-        for(Author item: authors){
-            authorNames+=item.getName() +",";
-        }
-        StringBuilder newAuthorNames = new StringBuilder(authorNames);
-        newAuthorNames.deleteCharAt(newAuthorNames.length()-1);
-        return newAuthorNames.toString();
+    public String getAuthorName(){
+        return this.author.getName();
     }
 
     @Override
     public String toString() {
-        String author="";
-        for(Author item: authors){
-            author+=item.toString()+",";
-        }
-        StringBuilder newAuthors = new StringBuilder(author);
-        newAuthors.deleteCharAt(newAuthors.length()-1);
-        return "Book[" + "name=" + name + ",author={" + newAuthors + "},price=" + price + ",qty=" + qty + ']';
-    }
+        return "Book[" + "isbn=" + isbn + ",name=" + name + "," + author + ",price=" + price + ",qty=" + qty + ']';
+    } 
 }
 
 
 class TestBook{
     public static void main(String[] args) {
-        Book book = new Book("Python", new Author[]{new Author("Gia Kinh", "giakinh2000@gmail.com", 'm'),new Author("Lan anh", "lanh@gmail.com", 'f')}, 200.5, 30);
-        System.out.println(book.getAuthorNames());
-        System.out.println(book.toString());
-    }
+      // Test Author class
+      Author a1 = new Author("Tan Ah Teck", "ahteck@nowhere.com");
+      System.out.println(a1);
+
+      a1.setEmail("ahteck@somewhere.com");
+      System.out.println(a1);
+      System.out.println("name is: " + a1.getName());
+      System.out.println("email is: " + a1.getEmail());
+
+      // Test Book class
+      Book b1 = new Book("12345", "Java for dummies", a1, 8.8, 88);
+      System.out.println(b1);
+
+      b1.setPrice(9.9);
+      b1.setQty(99);
+      System.out.println(b1);
+      System.out.println("isbn is: " + b1.getName());
+      System.out.println("name is: " + b1.getName());
+      System.out.println("price is: " + b1.getPrice());
+      System.out.println("qty is: " + b1.getQty());
+      System.out.println("author is: " + b1.getAuthor());  // Author's toString()
+      System.out.println("author's name: " + b1.getAuthorName());
+      System.out.println("author's name: " + b1.getAuthor().getName());
+      System.out.println("author's email: " + b1.getAuthor().getEmail());
+   }
 }
