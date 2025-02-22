@@ -3,24 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Animal;
+package AnimalAbstract;
+
+import Animal.*;
 
 /**
  *
  * @author GIA KINH
  */
-public abstract class Animal {
-       private String name;
-
-    public Animal(String name) {
-        this.name = name;
-    }
-
-    public Animal() {
-    }
-    
-    
-    
-    public abstract void greets();
+abstract public class Animal {
+    public abstract void greeting();
     
 }

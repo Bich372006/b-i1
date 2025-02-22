@@ -3,31 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Animal;
+package AnimalAbstract;
+
+import Animal.*;
 
 /**
  *
  * @author GIA KINH
  */
-public class Cat extends Animal{
-
-    public Cat(String name) {
-        super(name);
-    }
+public class Cat extends Animal {
 
     public Cat() {
     }
 
     @Override
     public String toString() {
-        return "Cat[" + super.toString() +']';
+        return "Cat[" + super.toString() + ']';
     }
-    
-    
 
     @Override
-    public void greets() {
-        System.out.println("Meow");
+    public void greeting() {
+        System.out.println("Meow!");
     }
-    
+
 }
